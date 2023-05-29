@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import Root from './routes/root';
 {{#domains}}
-import {{name.capital}} from './routes/{{name.capital}}.js';
+import {{name.capital_param}} from './routes/{{name.capital_param}}.js';
 {{/domains}}
 import Example from './routes/example.js';
 import AnotherExample from './routes/anotherExample.js';
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       {{#domains}}
       {
         path: "{{&path}}",
-        element: <{{name.capital}} />,
+        element: <{{name.capital_param}} />,
       },
       {{/domains}}
     ]
