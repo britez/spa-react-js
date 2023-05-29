@@ -7,12 +7,11 @@ export default function Root({children}) {
           <h1>{{name}}</h1>
           <nav>
             <ul>
+              {{#domains}}
               <li>
-                <a href={`/example`}>Example</a>
+                <a href={`{{path}}`}>{{description}}</a>
               </li>
-              <li>
-                <a href={`/another-example`}>Another Example</a>
-              </li>
+              {{/domains}}
             </ul>
           </nav>
         </div>
