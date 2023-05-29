@@ -1,6 +1,13 @@
 const {{nameCC}} = () => {
     return <>
         <h1>{{nameCC}}</h1>
+
+        <form>
+            {{#fields}}
+            <label>{{label}}</label>
+            <input name='{{name}}'/>
+            {{/fields}}
+        </form>
     </>
 }
 
