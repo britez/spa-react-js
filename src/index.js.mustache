@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import Root from './routes/root';
 {{#domains}}
-import {{name.capital_param}} from './routes/{{name.capital_param}}.js';
+import {{#toCapitalCase}}{{name}}{{/toCapitalCase}} from './routes/{{#toCapitalCase}}{{name}}{{/toCapitalCase}}.js';
 {{/domains}}
 import Example from './routes/example.js';
 import AnotherExample from './routes/anotherExample.js';
