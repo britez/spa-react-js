@@ -1,0 +1,7 @@
+const {{nameCC}} = () => {
+    return <>
+        <h1>{{nameCC}}</h1>
+    </>
+}
+
+export default {{nameCC}};
