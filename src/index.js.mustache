@@ -18,9 +18,9 @@ const router = createBrowserRouter([
     children: [
       {{#domains}}
       {
-        path: "{{path}}",
+        path: "{{&path}}",
         element: <Example />,
-      }
+      },
       {{/domains}}
     ]
   },
