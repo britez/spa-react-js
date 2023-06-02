@@ -5,10 +5,11 @@ const {{nameCC}} = () => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        const fetch = async () => {
-            let data = await fetch('/api{{path}}')
+        const doFetch = async () => {
+            let data = await fetch('/api{{{path}}}')
             setItems(await data.json())
         }
+        doFetch();
     }, [])
 
     return <>
