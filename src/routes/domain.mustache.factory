@@ -27,6 +27,7 @@ const {{nameCC}} = () => {
                     {{#fields}}
                     <td>{item.{{name}}}</td>
                     {{/fields}}
+                </tr>
                 ) }
             </tbody>
         </table>
