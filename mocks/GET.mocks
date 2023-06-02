@@ -6,7 +6,7 @@ Content-Type: application/json
     {{#items}}
     {
         {{#fields}}
-        "{{key}}": {{value}},
+        "{{key}}": "{{value}}",
         {{/fields}}
     },
     {{/items}}
