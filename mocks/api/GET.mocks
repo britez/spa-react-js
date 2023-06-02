@@ -6,8 +6,8 @@ Content-Type: application/json
     {{#items}}
     {
         {{#fields}}
-        "{{key}}": "{{value}}"{#if !@last},{/#if}
+        "{{key}}": "{{value}}"{{#if !@last}},{{/#if}}
         {{/fields}}
-    }{#if !@last},{/#if}
+    }{{#if !@last}},{{/#if}}
     {{/items}}
 ]
