@@ -3,7 +3,7 @@ X-Custom-Header: Custom-Value
 Content-Type: application/json
 
 {
-    {{#fields}}
-    "{{key}}": "{{value}}",
-    {{/fields}}
+    {{#each fields}}
+    "{{key}}": {{#if (isString type)}}"{/if}{{value}}{{#if (isString type)}}"{/if}{{#unless @last}},{{/unless}}
+    {{/each}}
 }
