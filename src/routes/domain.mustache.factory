@@ -1,6 +1,35 @@
+import react, { useState, useEffect } from 'react';
+
 const {{nameCC}} = () => {
+
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        const fetch = async () => {
+            let data = await fetch('/api{{path}}')
+            setItems(await data.json())
+        }
+    }, [])
+
     return <>
         <h1>{{nameCC}}</h1>
+
+        <table>
+            <thead>
+                <tr>
+                {{#fields}}
+                    <th>{{label}}</th>
+                {{/fields}}
+                </tr>
+            </thead>
+            <tbody>
+                { items.map(item => <tr key={item.id}>
+                    {{#fields}}
+                    <td>{item.{{name}}}</td>
+                    {{/fields}}
+                ) }
+            </tbody>
+        </table>
 
         <form>
             {{#fields}}
