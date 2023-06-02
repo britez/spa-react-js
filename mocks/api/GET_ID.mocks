@@ -4,6 +4,6 @@ Content-Type: application/json
 
 {
     {{#each fields}}
-    "{{key}}": {{#if (isString type)}}"{/if}{{value}}{{#if (isString type)}}"{/if}{{#unless @last}},{{/unless}}
+    "{{key}}": {{#if (isString type)}}"{{/if}}{{value}}{{#if (isString type)}}"{{/if}}{{#unless @last}},{{/unless}}
     {{/each}}
 }
