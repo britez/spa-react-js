@@ -3,11 +3,11 @@ X-Custom-Header: Custom-Value
 Content-Type: application/json
 
 [
-    {{#items}}
+    {{each #items}}
     {
-        {{#fields}}
+        {{#each fields}}
         "{{key}}": "{{value}}"{{#if !@last}},{{/#if}}
-        {{/fields}}
+        {{/each}}
     }{{#if !@last}},{{/#if}}
-    {{/items}}
+    {{/each}}
 ]
