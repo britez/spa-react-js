@@ -26,9 +26,9 @@ const {{nameCC}} = () => {
             </thead>
             <tbody>
                 { items.map(item => <tr key={item.id}>
-                    {{#fields}}
-                    <td><Link to={`/{{../name}}/${item.id}`}>{item.{{name}}}</Link></td>
-                    {{/fields}}
+                    {{#each fields}}
+                    <td>{{#if @first}}<Link to={`/{{../name}}/${item.id}`}>{{/if}}{ item.{{name}} }{{#if @first}}</Link>{{/if}}</td>
+                    {{/each}}
                 </tr>
                 ) }
             </tbody>
