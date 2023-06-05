@@ -1,7 +1,7 @@
 import react, { useState, useEffect } from 'react';
 import { Link, useParams } from "react-router-dom";
 
-const {{nameCC}} = () => {
+const Get{{nameCC}} = () => {
 
     const [item, setItem] = useState();
 
@@ -23,4 +23,4 @@ const {{nameCC}} = () => {
     </>
 }
 
-export default {{nameCC}};
+export default Get{{nameCC}};
