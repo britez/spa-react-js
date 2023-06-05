@@ -1,0 +1,28 @@
+import react, { useState, useEffect } from 'react';
+import { Link, useParams } from "react-router-dom";
+
+const {{nameCC}} = () => {
+
+    const [item, setItem] = useState();
+
+    let { id } = useParams();
+
+    useEffect(() => {
+        const doFetch = async () => {
+            let data = await fetch(`/api{{{path}}}/{id}`)
+            setItem(await data.json())
+        }
+        doFetch();
+    }, [])
+
+    return <>
+        <h1>{{nameCC}}</h1>
+
+        {{#fields}}
+        <label>{{label}} {item.{{name}}}</label>
+        {{/fields}}
+
+    </>
+}
+
+export default {{nameCC}};

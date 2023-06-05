@@ -1,4 +1,5 @@
 import react, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 const {{nameCC}} = () => {
 
@@ -26,19 +27,12 @@ const {{nameCC}} = () => {
             <tbody>
                 { items.map(item => <tr key={item.id}>
                     {{#fields}}
-                    <td>{item.{{name}}}</td>
+                    <td><Link to={`/{{name}}/${item.id}`}>{item.{{name}}}</Link></td>
                     {{/fields}}
                 </tr>
                 ) }
             </tbody>
         </table>
-
-        <form>
-            {{#fields}}
-            <label>{{label}}</label>
-            <input name='{{name}}'/>
-            {{/fields}}
-        </form>
     </>
 }
 
