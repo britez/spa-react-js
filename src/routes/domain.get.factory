@@ -1,5 +1,5 @@
 import react, { useState, useEffect } from 'react';
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const Get{{nameCC}} = () => {
 
@@ -15,12 +15,14 @@ const Get{{nameCC}} = () => {
         doFetch();
     }, [])
 
-    return <>
-        <h1>{{nameCC}}</h1>
-        {{#fields}}
-        <label>{{label}} { item.{{name}} }</label>
-        {{/fields}}
-    </>
+    return item ? 
+            <>
+                <h1>{{nameCC}}</h1>
+                {{#fields}}
+                <label>{{label}} { item.{{name}} }</label>
+                {{/fields}}
+            </>
+        : <h3>Loading...</h3>
 }
 
 export default Get{{nameCC}};
