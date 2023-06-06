@@ -1,0 +1,13 @@
+HTTP/1.1 201 Created
+X-Custom-Header: Custom-Value
+Content-Type: application/json
+
+[
+    {{#with items.[1]}}
+    {
+        {{#each fields}}
+        "{{key}}": {{#if (isString type)}}"{{/if}}{{value}}{{#if (isString type)}}"{{/if}}{{#unless @last}},{{/unless}}
+        {{/each}}
+    }{{#unless @last}},{{/unless}}
+    {{/with}}
+]

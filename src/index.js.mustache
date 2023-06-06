@@ -11,6 +11,7 @@ import Root from './routes/root';
 {{#domains}}
 import {{nameCC}} from './routes/{{name}}/list.js';
 import Get{{nameCC}} from './routes/{{name}}/get.js';
+import New{{nameCC}} from './routes/{{name}}/new.js';
 {{/domains}}
 
 const router = createBrowserRouter([
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: "{{&path}}",
         element: <{{nameCC}} />,
+      },
+      {
+        path: "{{&path}}/new",
+        element: <New{{nameCC}} />,
       },
       {
         path: "{{&path}}/:id",

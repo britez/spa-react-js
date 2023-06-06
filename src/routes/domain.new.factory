@@ -1,0 +1,28 @@
+import react, { useState, useEffect } from 'react';
+import { useParams } from "react-router-dom";
+
+const New{{nameCC}} = () => {
+
+    const [item, setItem] = useState();
+
+    let { id } = useParams();
+
+    useEffect(() => {
+        const doFetch = async () => {
+            let data = await fetch(`/api{{{path}}}/${id}`);
+            setItem(await data.json());
+        }
+        doFetch();
+    }, [])
+
+    return item ? 
+            <>
+                <h1>{{nameCC}}</h1>
+                {{#fields}}
+                <label>{{label}} { item.{{name}} }</label>
+                {{/fields}}
+            </>
+        : <h3>Loading...</h3>
+}
+
+export default New{{nameCC}};

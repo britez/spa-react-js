@@ -15,6 +15,7 @@ const {{nameCC}} = () => {
 
     return <>
         <h1>{{nameCC}}</h1>
+        <Link to={'/{{name}}/new'}>Add new</Link>
 
         <table>
             <thead>
