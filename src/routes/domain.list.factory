@@ -7,7 +7,7 @@ const {{toCapitalCase name}} = () => {
 
     useEffect(() => {
         const doFetch = async () => {
-            let data = await fetch('/api{{{toPlural name}}}')
+            let data = await fetch('/api/{{{toPlural name}}}')
             setItems(await data.json())
         }
         doFetch();
