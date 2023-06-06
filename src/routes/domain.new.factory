@@ -9,13 +9,13 @@ const New{{nameCC}} = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            let response = await fetch('{{path}}', {
+            let response = await fetch('/api/{{name}}', {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(item)
             })
             if (response?.ok) {
-                navigate('/{{name}}');
+                navigate('{{path}}');
             } else {
                 console.log(`HTTP Response Code: ${response?.status}`)
             }
