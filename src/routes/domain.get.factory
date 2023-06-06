@@ -1,44 +1,28 @@
 import react, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
-const New{{nameCC}} = () => {
+const Get{{nameCC}} = () => {
 
-    const [item, setItem] = useState({});
-    const navigate = useNavigate();
+    const [item, setItem] = useState();
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            let response = await fetch('{{path}}', {
-                method: 'POST',
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(item)
-            })
-            if (response?.ok) {
-                navigate('/{{name}}');
-            } else {
-                console.log(`HTTP Response Code: ${response?.status}`)
-            }
-        } catch (error) {
-            console.error('Error', error);
-        } 
-    }
+    let { id } = useParams();
 
-    const handleChange = (field, value) => {
-        setItem(item => ({...item, [field]: value}))
-    };
+    useEffect(() => {
+        const doFetch = async () => {
+            let data = await fetch(`/api{{{path}}}/${id}`);
+            setItem(await data.json());
+        }
+        doFetch();
+    }, [])
 
-    return <>
-            <h1>Create {{nameCC}}</h1>
-            <form onSubmit={handleSubmit}>
-                {{#each fields}}
-                <label>{{label}}</label>
-                <input type='text' name='{{name}}' onChange={e => handleChange('{{name}}', e.target.value)}/>
-                {{#if (not @last)}}<br />{{/if}}
-                {{/each}}
-                <button type='submit'>Create</button>
-            </form>
-        </>
+    return item ? 
+            <>
+                <h1>{{nameCC}}</h1>
+                {{#fields}}
+                <label>{{label}} { item.{{name}} }</label>
+                {{/fields}}
+            </>
+        : <h3>Loading...</h3>
 }
 
-export default New{{nameCC}};
+export default Get{{nameCC}};
