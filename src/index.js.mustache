@@ -9,9 +9,9 @@ import {
 } from "react-router-dom";
 import Root from './routes/root';
 {{#domains}}
-import {{nameCC}} from './routes/{{name}}/list.js';
-import Get{{nameCC}} from './routes/{{name}}/get.js';
-import New{{nameCC}} from './routes/{{name}}/new.js';
+import {{toCapitalCase name}} from './routes/{{name}}/list.js';
+import Get{{toCapitalCase name}} from './routes/{{name}}/get.js';
+import New{{toCapitalCase name}} from './routes/{{name}}/new.js';
 {{/domains}}
 
 const router = createBrowserRouter([
@@ -22,15 +22,15 @@ const router = createBrowserRouter([
       {{#domains}}
       {
         path: "{{&path}}",
-        element: <{{nameCC}} />,
+        element: <{{toCapitalCase name}} />,
       },
       {
         path: "{{&path}}/new",
-        element: <New{{nameCC}} />,
+        element: <New{{toCapitalCase name}} />,
       },
       {
         path: "{{&path}}/:id",
-        element: <Get{{nameCC}} />,
+        element: <Get{{toCapitalCase name}} />,
       },
       {{/domains}}
     ]

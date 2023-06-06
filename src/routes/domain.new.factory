@@ -1,7 +1,7 @@
 import react, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const New{{nameCC}} = () => {
+const New{{toCapitalCase name}} = () => {
 
     const [item, setItem] = useState({});
     const navigate = useNavigate();
@@ -9,7 +9,7 @@ const New{{nameCC}} = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            let response = await fetch('/api/{{name}}', {
+            let response = await fetch('/api/{{toPlural name}}', {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(item)
@@ -29,7 +29,7 @@ const New{{nameCC}} = () => {
     };
 
     return <>
-            <h1>Create {{nameCC}}</h1>
+            <h1>Create {{toCapitalCase name}}</h1>
             <form onSubmit={handleSubmit}>
                 {{#each fields}}
                 <label>{{label}}</label>
@@ -41,4 +41,4 @@ const New{{nameCC}} = () => {
         </>
 }
 
-export default New{{nameCC}};
+export default New{{toCapitalCase name}};

@@ -1,7 +1,7 @@
 import react, { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
 
-const Get{{nameCC}} = () => {
+const Get{{toCapitalCase name}} = () => {
 
     const [item, setItem] = useState();
 
@@ -9,7 +9,7 @@ const Get{{nameCC}} = () => {
 
     useEffect(() => {
         const doFetch = async () => {
-            let data = await fetch(`/api{{{path}}}/${id}`);
+            let data = await fetch(`/api{{{toPlural name}}}/${id}`);
             setItem(await data.json());
         }
         doFetch();
@@ -17,7 +17,7 @@ const Get{{nameCC}} = () => {
 
     return item ? 
             <>
-                <h1>{{nameCC}}</h1>
+                <h1>{{toCapitalCase name}}</h1>
                 {{#fields}}
                 <label>{{label}} { item.{{name}} }</label>
                 {{/fields}}
@@ -25,4 +25,4 @@ const Get{{nameCC}} = () => {
         : <h3>Loading...</h3>
 }
 
-export default Get{{nameCC}};
+export default Get{{toCapitalCase name}};

@@ -1,21 +1,21 @@
 import react, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
-const {{nameCC}} = () => {
+const {{toCapitalCase name}} = () => {
 
     const [items, setItems] = useState([]);
 
     useEffect(() => {
         const doFetch = async () => {
-            let data = await fetch('/api{{{path}}}')
+            let data = await fetch('/api{{{toPlural name}}}')
             setItems(await data.json())
         }
         doFetch();
     }, [])
 
     return <>
-        <h1>{{nameCC}}</h1>
-        <Link to={'/{{name}}/new'}>Add new</Link>
+        <h1>{{toCapitalCase name}}</h1>
+        <Link to={'{{path}}/new'}>Add new</Link>
 
         <table>
             <thead>
@@ -37,4 +37,4 @@ const {{nameCC}} = () => {
     </>
 }
 
-export default {{nameCC}};
+export default {{toCapitalCase name}};
