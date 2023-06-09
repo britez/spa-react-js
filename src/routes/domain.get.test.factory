@@ -15,12 +15,9 @@ describe('Get{{toCapitalCase name}}', () => {
         });
 
         {{#each fields}}
-        await screen.findByText('{{label}} {{../mocks.[1].[label]}}');  
-        expect(screen.getByText('{{label}} {{../mocks.[1].[label]}}')).toBeInTheDocument();
+        await screen.findByText('{{label}} {{lookup ../mocks.[1] name}}');  
+        expect(screen.getByText('{{label}} {{lookup ../mocks.[1] name}}')).toBeInTheDocument();
         {{/each}}
-
-        await screen.findByText('Name Joe');
-        expect(screen.getByText('Name Joe')).toBeInTheDocument();
     });
     
 });
