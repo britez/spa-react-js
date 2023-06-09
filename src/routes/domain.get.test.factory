@@ -1,0 +1,21 @@
+import React from 'react';
+import { render, screen, act } from '@testing-library/react';
+import Get{{toCapitalCase name}} from './get';
+
+describe('Get{{toCapitalCase name}}', () => {
+
+    beforeEach(() => {
+        fetch.resetMocks();
+        fetch.mockResponse(JSON.stringify({{toStringify mocks.[1]}}))
+    });
+    
+    it('renders Get{{toCapitalCase name}} ok', async () => {
+        await act(async => {
+            render(<Get{{toCapitalCase name}} />);
+        });
+
+        await screen.findByText('Name Joe');
+        expect(screen.getByText('Name Joe')).toBeInTheDocument();
+    });
+    
+});
