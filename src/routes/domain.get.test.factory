@@ -14,6 +14,11 @@ describe('Get{{toCapitalCase name}}', () => {
             render(<Get{{toCapitalCase name}} />);
         });
 
+        {{#each fields}}
+        await screen.findByText('{{label}} {{../mocks.[1].[label]}}');  
+        expect(screen.getByText('{{label}} {{../mocks.[1].[label]}}')).toBeInTheDocument();
+        {{/each}}
+
         await screen.findByText('Name Joe');
         expect(screen.getByText('Name Joe')).toBeInTheDocument();
     });
