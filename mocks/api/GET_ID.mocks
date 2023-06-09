@@ -2,4 +2,4 @@ HTTP/1.1 200 OK
 X-Custom-Header: Custom-Value
 Content-Type: application/json
 
-{{{toStringify mocks.[1]}}}
+{{{toStringify mock}}}
