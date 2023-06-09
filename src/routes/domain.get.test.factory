@@ -6,7 +6,7 @@ describe('Get{{toCapitalCase name}}', () => {
 
     beforeEach(() => {
         fetch.resetMocks();
-        fetch.mockResponse(JSON.stringify({{toStringify mocks.[1]}}))
+        fetch.mockResponse(JSON.stringify({{{toStringify mocks.[1]}}}))
     });
     
     it('renders Get{{toCapitalCase name}} ok', async () => {
