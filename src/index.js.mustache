@@ -9,9 +9,9 @@ import {
 } from "react-router-dom";
 import Root from './routes/root';
 {{#domains}}
-import {{toCapitalCase name}} from './routes/{{name}}/list.js';
-import Get{{toCapitalCase name}} from './routes/{{name}}/get.js';
-import New{{toCapitalCase name}} from './routes/{{name}}/new.js';
+import {{toCapitalCase name}} from './routes/{{toPlural name}}/list.js';
+import Get{{toCapitalCase name}} from './routes/{{toPlural name}}/get.js';
+import New{{toCapitalCase name}} from './routes/{{toPlural name}}/new.js';
 {{/domains}}
 
 const router = createBrowserRouter([
