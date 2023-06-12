@@ -13,11 +13,7 @@ const Get{{toCapitalCase name}} = () => {
             try {
                 let response = await fetch(`/api/{{{toPlural name}}}/${id}`);
                 let responseJSON = await response.json();
-                if (response?.ok) {
-                    setItem(responseJSON);
-                } else {
-                    setError(response.message)
-                }
+                response?.ok ? setItem(responseJSON) : setError(responseJSON.message);
             } catch (error) {
                 setError('Hubo un error al obtener los {{toPlural name}}');
             }
