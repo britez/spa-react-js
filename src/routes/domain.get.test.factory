@@ -6,11 +6,11 @@ describe('Get{{toCapitalCase name}}', () => {
 
     beforeEach(() => {
         fetch.resetMocks();
-        fetch.mockResponse(JSON.stringify({{{toStringify mocks.[1]}}}))
     });
     
     it('renders Get{{toCapitalCase name}} ok', async () => {
-        await act(async => {
+        fetch.mockResponse(JSON.stringify({{{toStringify mocks.[1]}}}))
+        await act(async () => {
             render(<Get{{toCapitalCase name}} />);
         });
 
@@ -19,5 +19,38 @@ describe('Get{{toCapitalCase name}}', () => {
         expect(screen.getByText('{{label}} {{lookup ../mocks.[1] name}}')).toBeInTheDocument();
         {{/each}}
     });
+
+    it('render Get{{toCapitalCase name}} error', async () => {
+        fetch.mockResponse(JSON.stringify({message: 'Hubo un error al obtener los {{toPlural name}}'}), {status: 500, statusText: 'Internal Server Error'})
+        
+        await act(async () => {
+            render(<Get{{toCapitalCase name}} />);
+        });
+
+        await screen.findByText('Loading...');
+        expect(screen.getByText('Loading...')).toBeInTheDocument();
+
+        await screen.findByText('Hubo un error al obtener los {{toPlural name}}');
+        expect(screen.getByText('Hubo un error al obtener los {{toPlural name}}')).toBeInTheDocument();
+
+    });
+
+    it('render Get{{toCapitalCase name}} communition error', async () => {
+        fetch.mockReject(new Error('fake error message'));
+
+        await act(async () => {
+            render(<Get{{toCapitalCase name}} />);
+        });
+
+        await screen.findByText('Loading...');
+        expect(screen.getByText('Loading...')).toBeInTheDocument();
+
+        await screen.findByText('Hubo un error al obtener los {{toPlural name}}');
+        expect(screen.getByText('Hubo un error al obtener los {{toPlural name}}')).toBeInTheDocument();
+    });
+
+
+
+
     
 });

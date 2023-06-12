@@ -4,25 +4,38 @@ import { useParams } from "react-router-dom";
 const Get{{toCapitalCase name}} = () => {
 
     const [item, setItem] = useState();
+    const [error, setError] = useState();
 
     let { id } = useParams();
 
     useEffect(() => {
         const doFetch = async () => {
-            let data = await fetch(`/api/{{{toPlural name}}}/${id}`);
-            setItem(await data.json());
+            try {
+                let response = await fetch(`/api/{{{toPlural name}}}/${id}`);
+                let responseJSON = await response.json();
+                if (response?.ok) {
+                    setItem(responseJSON);
+                } else {
+                    setError(response.message)
+                }
+            } catch (error) {
+                setError('Hubo un error al obtener los {{toPlural name}}');
+            }
         }
         doFetch();
     }, [])
 
-    return item ? 
-            <>
-                <h1>{{toCapitalCase name}}</h1>
-                {{#fields}}
-                <label>{{label}} { item.{{name}} }</label>
-                {{/fields}}
-            </>
-        : <h3>Loading...</h3>
+    return <>
+        { item ? 
+        <>
+            <h1>{{toCapitalCase name}}</h1>
+            {{#fields}}
+            <label>{{label}} { item.{{name}} }</label>
+            {{/fields}}
+        </>    
+        : <h3>Loading...</h3>}
+        { error ? <p>{error}</p>: null }
+    </> 
 }
 
 export default Get{{toCapitalCase name}};
